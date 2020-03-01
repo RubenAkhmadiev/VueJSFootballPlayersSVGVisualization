@@ -1,21 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import EPL from '../dashboards/epl.vue'
-import Eredivisie from '../dashboards/eredivisie.vue'
+import Leagues from '../dashboards/leagues.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'epl',
-    component: EPL
+    name: 'leagues',
+    component: Leagues
   },
-  {
-    path: '/eredivisie',
-    name: 'eredivisie',
-    component: Eredivisie
-  }
+    {
+        path: '/players',
+        name: 'players',
+        component: ()=> import('../dashboards/players.vue')
+    }
 ]
 
 const router = new VueRouter({
@@ -24,5 +23,5 @@ const router = new VueRouter({
   routes
 })
 
-// Vue.config.devtools = true;
+Vue.config.devtools = true;
 export default router
